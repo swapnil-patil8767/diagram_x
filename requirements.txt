@@ -1,0 +1,8 @@
+﻿Flask
+flask-cors
+google-generativeai
+dataclasses
+python-dotenv
+crewai
+gunicorn
+langchain_groq 
