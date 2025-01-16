@@ -90,7 +90,10 @@ crew = Crew(
     agents=[mermaid_code_generator, mermaid_code_optimizer],
     tasks=[generate_mermaid_task, optimize_mermaid_task]
 )
-
+@app.route('/')
+def serve_index():
+    return send_from_directory('.', 'index.html')
+    
 @app.route('/generate-mermaid', methods=['POST'])
 def generate_mermaid():
     data = request.json
@@ -124,5 +127,7 @@ def generate_mermaid():
     mermaid_code = extract_mermaid_code(result)
     return jsonify({'mermaidCode': mermaid_code})
 
+port = int(os.environ.get("PORT", 10000))
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=port)
