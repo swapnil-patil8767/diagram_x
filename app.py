@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,send_from_directory
 from flask_cors import CORS
 import os
 from crewai import Agent, Task, Crew
@@ -92,7 +92,7 @@ crew = Crew(
 )
 @app.route('/')
 def serve_index():
-    return send_from_directory('.', 'index.html')
+    return send_from_directory('static', 'index.html')
     
 @app.route('/generate-mermaid', methods=['POST'])
 def generate_mermaid():
