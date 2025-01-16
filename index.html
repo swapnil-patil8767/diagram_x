@@ -439,7 +439,7 @@
 
         async function generateMermaidCode() {
             const description = document.getElementById('description-input').value;
-            const response = await fetch('http://localhost:5000/generate-mermaid', {
+            const response = await fetch('/generate-mermaid', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
